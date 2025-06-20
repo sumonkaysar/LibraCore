@@ -1,0 +1,21 @@
+{
+  "name": "libracore",
+  "version": "1.0.0",
+  "description": "LibraCore is a backend API for a Library Management System built with Express.js, TypeScript, and MongoDB. It provides endpoints for managing books, handling borrow logic with availability control, and generating summaries using aggregation. The system features schema validation, Mongoose middleware, and custom methods to ensure clean and reliable business logic.",
+  "keywords": [
+    "typescript",
+    "mongodb",
+    "express",
+    "mongoose"
+  ],
+  "main": "app.ts",
+  "author": "SK",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.16.0"
+  }
+}
