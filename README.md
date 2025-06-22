@@ -6,7 +6,7 @@ LibraCore is a backend API for a Library Management System built with **Express.
 
 ## 🌐 Live API
 
-**🔗 Base URL:** [https://libracore-api.onrender.com](https://libracore-api.onrender.com)
+**🔗 Base URL:** [https://libracore.vercel.app](https://libracore.vercel.app)
 
 ---
 
