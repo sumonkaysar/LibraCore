@@ -8,6 +8,8 @@ LibraCore is a backend API for a Library Management System built with **Express.
 
 **🔗 Base URL:** [https://libracore.vercel.app](https://libracore.vercel.app)
 
+Frontend Repo 🔗: [LibreCore](https://github.com/sumonkaysar/LibraCore-client)
+
 ---
 
 ## 🚀 Features
@@ -51,5 +53,5 @@ npm install
 | DELETE      | /api/books/:bookId | Delete a book by ID                          |
 | POST        | /api/borrow        | Borrow a book (with availability check)      |
 | GET         | /api/borrow        | Get summary of borrowed books (aggregation)  |
-|
 
+|

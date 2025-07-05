@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import { SortOrder } from "mongoose";
+import { IBook } from "../interfaces/book.interface";
 import { Book } from "../models/book.model";
 import catchAsync from "../utils/catchAsync";
 import { sendResponse } from "../utils/sendResponse";
@@ -9,7 +10,11 @@ import {
 } from "../validations/book.validation";
 
 const createBook = catchAsync(async (req, res) => {
-  const data = Book.validateInputs(req, res, bookZodSchema);
+  const data: IBook = Book.validateInputs(req, res, bookZodSchema);
+
+  if (data.copies < 1) {
+    data.available = false;
+  }
 
   if (data) {
     const result = await Book.create(data);
@@ -69,9 +74,18 @@ const updateBookById = catchAsync(async (req, res) => {
   const book = await Book.findBook(req.params.bookId, res);
 
   if (book) {
-    const data = Book.validateInputs(req, res, updateBookZodSchema);
+    const data: Partial<IBook> = Book.validateInputs(
+      req,
+      res,
+      updateBookZodSchema
+    );
 
     if (data) {
+      if (typeof data.copies === "number") {
+        console.log(data.copies > 0, req.body);
+        req.body.available = data.copies > 0;
+      }
+
       const updatedBook = await Book.findByIdAndUpdate(
         req.params.bookId,
         req.body,
